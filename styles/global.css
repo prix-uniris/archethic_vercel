@@ -1,0 +1,32 @@
+body, html {
+  font-family: 'SF Pro Text', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica',
+    'Arial', sans-serif;
+  padding: 0px;
+  margin: 0px;
+}
+
+
+::-webkit-scrollbar{
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  cursor: pointer;
+  background: #00a4db;
+}
+
+::selection{
+  background-color:#00a4db;
+  color:#fff;
+}
+
+-webkit-::selection{
+  background-color:#00a4db;
+  color:#fff;
+}
+
+::-moz-selection{
+  background-color:#00a4db;
+  color:#fff;
+}
