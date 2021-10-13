@@ -6,4 +6,18 @@ const ClearContainer = styled(Container)(({ theme }) => ({
   background: "none",
 }));
 
+const ClearResetContainer = styled(Container)(({ theme }) => ({
+  background: "none",
+  margin: "0px",
+  padding: 0,
+  root: {
+    padding: "0px",
+    maxWidth: "auto"
+  }
+}));
+
+
 export default ClearContainer
+export {
+  ClearResetContainer
+}

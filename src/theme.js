@@ -20,12 +20,13 @@ const theme = createTheme({
     },
   },
   typography: {
+    fontFamily: "Lato, OpenSans",
     h2 : {
       '@media (max-width: 960px)': {
         fontSize: "2.5rem"
       }
     }
-  }
+  },
 });
 
 export default theme;
