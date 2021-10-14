@@ -31,7 +31,7 @@ const Landing = () => {
       <ClearContainer maxWidth="xl">
         <ClearGrid container>
           <ClearGrid item sm={10}>
-            <div class={styles.contentWrap}>
+            <div className={styles.contentWrap}>
               <Typography variant="h2" component="h2">
                 Welcome to the <br />
                 Internet of Trust

@@ -18,6 +18,9 @@ const theme = createTheme({
       secondary: "#b2b2b3",
       disabled: "#ccd",
     },
+    lines: {
+      main: "rgba(255, 255, 255, 0.2)"
+    }
   },
   typography: {
     fontFamily: "Lato, OpenSans",

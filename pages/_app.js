@@ -22,6 +22,11 @@ export default function MyApp(props) {
       <Head>
         <title>ArchEthic</title>
         <meta name="viewport" content="initial-scale=1, width=device-width" />
+        <script
+          defer
+          type="text/javascript"
+          src="https://widgets.rubic.exchange/iframe/bundle.min.js"
+        ></script>
       </Head>
       <ThemeProvider theme={theme}>
         {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}

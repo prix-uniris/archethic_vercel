@@ -1,0 +1,13 @@
+.root {
+  background: #05050f;
+}
+
+.developersImageWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.developersImage {
+  width: 60%;
+}

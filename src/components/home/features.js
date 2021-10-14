@@ -216,7 +216,7 @@ const rows = [
 const Features = () => {
   const theme = useTheme();
   const isLessThan670Px = useMediaQuery("(max-width: 670px)");
-  console.log(isLessThan670Px);
+
   const [open, setOpen] = React.useState(false);
   const [curDisplay, setCurDisplay] = React.useState(0);
 
@@ -491,7 +491,7 @@ const Features = () => {
                 <TableRow>
                   {columns.map((col) => {
                     return (
-                      <StyledTableCell align="center">
+                      <StyledTableCell align="center" key={col.headerName}>
                         {col.headerName}
                       </StyledTableCell>
                     );
@@ -535,7 +535,7 @@ const Features = () => {
           </TableContainer>
           <CustomHeight height={"2rem"} />
         </ClearContainer>
-        <Divider></Divider>
+        <Divider sx={{background: "rgba(255, 255, 255, 0.1)"}}></Divider>
       </ClearContainer>
     </div>
   );

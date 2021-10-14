@@ -102,7 +102,7 @@ const Navbar = () => {
   const [isOpen, setOpen] = React.useState(false);
 
   return (
-    <AppBar maxWidth="xl" style={{ zIndex: 2, background: "none" }} elevation={0}>
+    <AppBar style={{ zIndex: 2, background: "none" }} elevation={0}>
       <Toolbar sx={{ display: "flex", flexDirection: "column" }}>
         <Grid container spacing={2} style={{ padding: "1em 0em" }}>
           <Grid item xs={6} sm={3}>
@@ -120,7 +120,7 @@ const Navbar = () => {
           >
             {isLessThan1160Px ? (
               <IconButton onClick={() => setOpen(!isOpen)}>
-                <Fade in={!isOpen} sx={{position: "absolute", right: 0}}>
+                <Fade in={!isOpen} sx={{ position: "absolute", right: 0 }}>
                   <Menu
                     style={{
                       fontSize: "3rem",
@@ -128,7 +128,7 @@ const Navbar = () => {
                     }}
                   />
                 </Fade>
-                <Fade in={isOpen} sx={{position: "absolute", right: 0}}>
+                <Fade in={isOpen} sx={{ position: "absolute", right: 0 }}>
                   <Close
                     style={{
                       fontSize: "3rem",
@@ -146,8 +146,11 @@ const Navbar = () => {
             )}
           </Grid>
         </Grid>
-        <Collapse in={isOpen && isLessThan1160Px} sx={{background: "rgba(0,0,0,0.9)", width: "100%"}}>
-          <MyList sx={{ flexDirection: "column"}}>
+        <Collapse
+          in={isOpen && isLessThan1160Px}
+          sx={{ background: "rgba(0,0,0,0.9)", width: "100%" }}
+        >
+          <MyList sx={{ flexDirection: "column" }}>
             {navbarlink.map((nav, index) => {
               return <NavLink key={nav.text} text={nav.text} to={nav.to} />;
             })}

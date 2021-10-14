@@ -9,6 +9,7 @@ body, html {
 ::-webkit-scrollbar{
   width: 8px;
   height: 8px;
+  background: #05050f;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -18,15 +19,15 @@ body, html {
 
 ::selection{
   background-color:#00a4db;
-  color:#fff;
+  color:#05050f;
 }
 
 -webkit-::selection{
   background-color:#00a4db;
-  color:#fff;
+  color:#05050f;
 }
 
 ::-moz-selection{
   background-color:#00a4db;
-  color:#fff;
+  color:#05050f;
 }
