@@ -7,7 +7,7 @@ import Grid from "@mui/material/Grid";
 import ClearContainer from "../customComponents/ClearContainer";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
-import ListItemText from "@mui/material/ListItemText";
+import Link from "@mui/material/Link";
 import { styled } from "@mui/system";
 
 import { IconButton } from "@mui/material";
@@ -33,7 +33,7 @@ const CustomListItem = styled(ListItem)(({ theme }) => ({
     alignItems: "center",
     justifyContent: "center",
     cursor: "pointer",
-    ".MuiListItemText-primary": {
+    ".MuiLink-root": {
       color: theme.palette.text.primary,
     },
   },
@@ -55,19 +55,20 @@ const CustomListItem = styled(ListItem)(({ theme }) => ({
   },
 }));
 
-const CustomListItemText = styled(ListItemText)(({ theme }) => ({
+const CustomListItemLink = styled(Link)(({ theme }) => ({
   width: "max-content",
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
   color: "#607290",
   transition: "all 0.3s ease",
+  textDecoration: "none"
 }));
 
 const NavLink = ({ text, to }) => {
   return (
     <CustomListItem disableGutters>
-      <CustomListItemText primary={text} />
+      <CustomListItemLink href={to}>{text}</CustomListItemLink>
     </CustomListItem>
   );
 };
@@ -90,6 +91,10 @@ const navbarlink = [
     to: "#developers-landing",
   },
   {
+    text: "Community",
+    to: "#community-landing",
+  },
+  {
     text: "Roadmap",
     to: "#roadmap-landing",
   },
@@ -97,67 +102,100 @@ const navbarlink = [
 
 const Navbar = () => {
   const isLessThan1160Px = useMediaQuery("(max-width:1160px)");
+
   const theme = useTheme();
 
   const [isOpen, setOpen] = React.useState(false);
+  const [scrollY, setScrollY] = React.useState(0);
+  React.useEffect(() => {
+    if (window) {
+      window.addEventListener("scroll", () => {
+        setScrollY(window.scrollY);
+      });
+    }
+  }, []);
 
   return (
-    <AppBar style={{ zIndex: 2, background: "none" }} elevation={0}>
-      <Toolbar sx={{ display: "flex", flexDirection: "column" }}>
-        <Grid container spacing={2} style={{ padding: "1em 0em" }}>
-          <Grid item xs={6} sm={3}>
-            <Image
-              src="/assets/logo/archethic-white.png"
-              height="65"
-              width="200"
-            />
-          </Grid>
+    <div
+      style={{
+        position: "fixed",
+        top: "0px",
+        left: "auto",
+        width: "100%",
+        background: scrollY === 0 ? "none" : theme.palette.background.default,
+        zIndex: 2,
+      }}
+    >
+      <ClearContainer maxWidth="lg">
+        <Toolbar sx={{ display: "flex", flexDirection: "column" }}>
           <Grid
-            item
-            xs={6}
-            sm={9}
-            sx={{ display: "flex", justifyContent: "flex-end" }}
+            container
+            style={{ padding: scrollY === 0 ? "1em 0em" : "0.5em 0em" }}
           >
-            {isLessThan1160Px ? (
-              <IconButton onClick={() => setOpen(!isOpen)}>
-                <Fade in={!isOpen} sx={{ position: "absolute", right: 0 }}>
-                  <Menu
-                    style={{
-                      fontSize: "3rem",
-                      color: theme.palette.text.primary,
-                    }}
-                  />
-                </Fade>
-                <Fade in={isOpen} sx={{ position: "absolute", right: 0 }}>
-                  <Close
-                    style={{
-                      fontSize: "3rem",
-                      color: theme.palette.text.primary,
-                    }}
-                  />
-                </Fade>
-              </IconButton>
-            ) : (
-              <MyList>
-                {navbarlink.map((nav, index) => {
-                  return <NavLink key={nav.text} text={nav.text} to={nav.to} />;
-                })}
-              </MyList>
-            )}
+            <Grid
+              item
+              xs={6}
+              sm={3}
+              sx={{ display: "flex", alignItems: "center" }}
+            >
+              <Image
+                src="/assets/logo/archethic-white.png"
+                height={scrollY === 0 ? "65" : "50"}
+                width={scrollY === 0 ? "200" : "160"}
+                onClick={() => {
+                  window.location.href= "#"
+                }}
+              />
+            </Grid>
+            <Grid
+              item
+              xs={6}
+              sm={9}
+              sx={{ display: "flex", justifyContent: "flex-end" }}
+            >
+              {isLessThan1160Px ? (
+                <IconButton onClick={() => setOpen(!isOpen)}>
+                  <Fade in={!isOpen} sx={{ position: "absolute", right: 0 }}>
+                    <Menu
+                      style={{
+                        fontSize: "3rem",
+                        color: theme.palette.text.primary,
+                      }}
+                    />
+                  </Fade>
+                  <Fade in={isOpen} sx={{ position: "absolute", right: 0 }}>
+                    <Close
+                      style={{
+                        fontSize: "3rem",
+                        color: theme.palette.text.primary,
+                      }}
+                    />
+                  </Fade>
+                </IconButton>
+              ) : (
+                <MyList>
+                  {navbarlink.map((nav, index) => {
+                    return (
+                      <NavLink key={nav.text} text={nav.text} to={nav.to} />
+                    );
+                  })}
+                </MyList>
+              )}
+            </Grid>
           </Grid>
-        </Grid>
-        <Collapse
-          in={isOpen && isLessThan1160Px}
-          sx={{ background: "rgba(0,0,0,0.9)", width: "100%" }}
-        >
-          <MyList sx={{ flexDirection: "column" }}>
-            {navbarlink.map((nav, index) => {
-              return <NavLink key={nav.text} text={nav.text} to={nav.to} />;
-            })}
-          </MyList>
-        </Collapse>
-      </Toolbar>
-    </AppBar>
+          <Collapse
+            in={isOpen && isLessThan1160Px}
+            sx={{ background: theme.palette.background.default, width: "100%" }}
+          >
+            <MyList sx={{ flexDirection: "column" }}>
+              {navbarlink.map((nav, index) => {
+                return <NavLink key={nav.text} text={nav.text} to={nav.to} />;
+              })}
+            </MyList>
+          </Collapse>
+        </Toolbar>
+      </ClearContainer>
+    </div>
   );
 };
 

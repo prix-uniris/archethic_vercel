@@ -103,9 +103,9 @@ const CustomCard = ({ iconPath, heading, children }) => {
   );
 };
 
-const Governance = () => {
+const Governance = ({id}) => {
   return (
-    <div className={styles.root}>
+    <div className={styles.root} id={id}>
       <CustomHeight height="5rem" />
       <ClearContainer>
         <Typography variant="h2" component="h2" gutterBottom textAlign="center">

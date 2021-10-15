@@ -18,6 +18,10 @@ const theme = createTheme({
       secondary: "#b2b2b3",
       disabled: "#ccd",
     },
+    background: {
+      default: "#05050f",
+      paper: "rgba(255, 255, 255, 0.02)"
+    },
     lines: {
       main: "rgba(255, 255, 255, 0.2)"
     }

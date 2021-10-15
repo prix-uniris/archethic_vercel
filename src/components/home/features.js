@@ -213,7 +213,7 @@ const rows = [
   },
 ];
 
-const Features = () => {
+const Features = ({id}) => {
   const theme = useTheme();
   const isLessThan670Px = useMediaQuery("(max-width: 670px)");
 
@@ -370,8 +370,8 @@ const Features = () => {
   ];
 
   return (
-    <div className={styles.root}>
-      <div className={styles.overlay}></div>
+    <div className={styles.root} id={id}>
+
       <ClearContainer>
         <Grid container>
           <div className={styles.mainText}>

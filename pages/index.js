@@ -18,16 +18,18 @@ import Governance from "../src/components/home/governance";
 import UniversalCoin from "../src/components/home/universalCoin";
 import Developers from "../src/components/home/developers";
 import Community from "../src/components/home/community";
+import Roadmap from "../src/components/home/roadmap";
 
 export default function Index() {
   return (
-    <div sx={{ padding: "0px" }}>
+    <div >
       <Landing />
-      <Features />
-      <Governance />
-      <UniversalCoin />
-      <Developers />
-      <Community />
+      <Features id="ecosystem-landing"/>
+      <Governance id="governance-landing"/>
+      <UniversalCoin id="uco-landing"/>
+      <Developers id="developers-landing"/>
+      <Community id="community-landing" />
+      <Roadmap id="roadmap-landing"/>
       <script defer type="text/javascript" src="/js/rubic.js"></script>
     </div>
   );

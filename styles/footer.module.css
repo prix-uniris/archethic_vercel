@@ -1,0 +1,12 @@
+.root {
+  background-color: #05050f;
+}
+
+.footerBottomLink {
+  text-align: center;
+}
+
+.footerBottomLink:hover {
+  cursor: pointer;
+
+}

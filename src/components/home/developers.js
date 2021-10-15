@@ -10,11 +10,11 @@ import { Box } from "@mui/system";
 import { Divider } from "@mui/material";
 import { useTheme } from "@emotion/react";
 
-const Developers = () => {
+const Developers = ({id}) => {
   const theme = useTheme();
 
   return (
-    <div className={styles.root}>
+    <div className={styles.root} id={id}>
       <ClearContainer>
         <CustomHeight height="5rem" />
         <Typography variant="h2" component="h2" textAlign="center" gutterBottom>
@@ -32,6 +32,7 @@ const Developers = () => {
         <CustomHeight height="3rem" />
         <div className={styles.developersImageWrapper}>
           <img
+            defer
             src="/assets/OMIro1.png"
             alt="aebot and technology"
             className={styles.developersImage}

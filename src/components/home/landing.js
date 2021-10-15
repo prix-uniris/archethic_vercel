@@ -11,13 +11,17 @@ import IconButton from "@mui/material/IconButton";
 
 import PlayCircleOutlineIcon from "@mui/icons-material/PlayCircleOutline";
 
+import SocialMedia from "../socialMedia";
+
 import { useTheme } from "@mui/material/styles";
+import { useMediaQuery } from "@mui/material";
 
 const Landing = () => {
   const theme = useTheme();
+  const isLessThan600Px = useMediaQuery("(max-width: 600px)");
 
   return (
-    <ClearContainer style={{ position: "realtive", height: "100vh" }}>
+    <ClearContainer style={{ position: "realtive" }}>
       <video
         className={styles.video_landing}
         autoPlay
@@ -29,8 +33,8 @@ const Landing = () => {
       </video>
       <div className={styles.video_overlay}></div>
       <ClearContainer maxWidth="xl">
-        <ClearGrid container>
-          <ClearGrid item sm={10}>
+        <Grid container>
+          <Grid item sm={10}>
             <div className={styles.contentWrap}>
               <Typography variant="h2" component="h2">
                 Welcome to the <br />
@@ -42,8 +46,18 @@ const Landing = () => {
               </Typography>
               <CustomHeight height="2rem" />
               <div>
-                <PrimaryButton text="Buy UCO" />
-                <PrimaryButton text="Join the Community" />
+                <PrimaryButton
+                  text="Buy UCO"
+                  onClick={() => {
+                    window.location.href = "#uco-landing";
+                  }}
+                />
+                <PrimaryButton
+                  text="Join the Community"
+                  onClick={() => {
+                    window.location.href = "#community-landing";
+                  }}
+                />
                 <IconButton>
                   <PlayCircleOutlineIcon
                     style={{
@@ -55,11 +69,20 @@ const Landing = () => {
                 </IconButton>
               </div>
             </div>
-          </ClearGrid>
-          <ClearGrid item sm={2}>
-
-          </ClearGrid>
-        </ClearGrid>
+          </Grid>
+          <Grid
+            item
+            sm={2}
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: isLessThan600Px ? "center" : "flex-end",
+              width: "100%",
+            }}
+          >
+            <SocialMedia orientation={isLessThan600Px ? "row" : "column"} />
+          </Grid>
+        </Grid>
       </ClearContainer>
     </ClearContainer>
   );

@@ -236,7 +236,6 @@ const TokenChart = () => {
               outerRadius={95}
             />
             <Tooltip content={<CustomTooltip />} />
-
           </PieChart>
         </ResponsiveContainer>
       </Grid>
@@ -244,12 +243,12 @@ const TokenChart = () => {
   );
 };
 
-const UniversalCoin = () => {
+const UniversalCoin = ({ id }) => {
   const theme = useTheme();
   const isLessThan600Px = useMediaQuery("(max-width: 600px)");
 
   return (
-    <div className={styles.root}>
+    <div className={styles.root} id={id}>
       <ClearContainer>
         <CustomHeight height="5rem" />
         <Typography variant="h2" component="h2" textAlign="center">
@@ -289,6 +288,7 @@ const UniversalCoin = () => {
                 src="/partners/1.svg"
                 alt="zeibtix"
                 className={styles.image}
+                defer
               />
             </Grid>
             <Grid
@@ -309,6 +309,7 @@ const UniversalCoin = () => {
                 src="/partners/2.png"
                 alt="probit"
                 className={styles.image}
+                defer
               />
             </Grid>
             <Grid
@@ -329,6 +330,7 @@ const UniversalCoin = () => {
                 src="/partners/3.png"
                 alt="bitthumb"
                 className={styles.image}
+                defer
               />
             </Grid>
             <Grid
@@ -346,6 +348,7 @@ const UniversalCoin = () => {
                 src="/partners/4.svg"
                 alt="uniswap"
                 className={styles.image}
+                defer
               />
             </Grid>
           </Grid>
